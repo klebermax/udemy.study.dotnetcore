@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Actio.Common.Commands;
 using Actio.Common.RabbitMq;
-using Actio.Services.Identity.Handlers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;

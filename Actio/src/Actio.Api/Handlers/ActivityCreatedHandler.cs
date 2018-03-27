@@ -10,7 +10,7 @@ namespace Actio.Api.Handlers
         {
             await Task.CompletedTask;
             
-            Console.WriteLine($"Activity created: {@event.Name}");
+            Console.WriteLine($"{DateTime.Now} - Activity created: {@event.Name}");
         }
     }
 }
