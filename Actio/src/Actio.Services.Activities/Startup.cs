@@ -8,6 +8,7 @@ using Actio.Common.RabbitMq;
 using Actio.Services.Activities.Domain.Repositories;
 using Actio.Services.Activities.Handlers;
 using Actio.Services.Activities.Repositories;
+using Actio.Services.Activities.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -36,7 +37,8 @@ namespace Actio.Services.Activities
             services.AddScoped<ICommandHandler<CreateActivity>, CreateActivityHandler>();
             services.AddScoped<IActivityRepository, ActivityRepository>();
             services.AddScoped<Actio.Services.Activities.Domain.Repositories.ICategoryRepository, CategoryRepository>();
-            services.AddScoped<IDatabaseSeeder, MongoSeeder>();
+            services.AddScoped<IDatabaseSeeder, CustomMongoSeeder>();
+            services.AddScoped<IActivityService, ActivityService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

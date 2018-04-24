@@ -15,6 +15,8 @@ namespace Actio.Common.Mongo
             {
                 var options = c.GetService<IOptions<MongoOptions>>();
 
+                Console.WriteLine("cccc " + options.Value.ConnectionString);
+
                 return new MongoClient(options.Value.ConnectionString);
 
             });
@@ -23,11 +25,16 @@ namespace Actio.Common.Mongo
                 var options = c.GetService<IOptions<MongoOptions>>();
                 var client = c.GetService<MongoClient>();
 
+                Console.WriteLine("database " + options.Value.Database);
+                      
+                      var teste =   client.GetDatabase(options.Value.Database).GetCollection<MongoDB.Bson.BsonDocument>("colteste");
+
+
                 return client.GetDatabase(options.Value.Database);
 
             });
             services.AddScoped<IDatabaseInitializer, MongoInitializer>();            
-            services.AddScoped<IDatabaseSeeder, MongoSeeder>();            
+            //services.AddScoped<IDatabaseSeeder, MongoSeeder>();            
         }        
     }
 }

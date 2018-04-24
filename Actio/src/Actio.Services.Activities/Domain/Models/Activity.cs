@@ -1,4 +1,5 @@
 using System;
+using Actio.Common.Exceptions;
 
 namespace Actio.Services.Activities.Domain.Models
 {
@@ -13,17 +14,22 @@ namespace Actio.Services.Activities.Domain.Models
 
         protected Activity()
         {
-            
+
         }
 
         public Activity(Guid id, Category category, Guid userId, string name, string description, DateTime createdAt)
         {
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                throw new ActioException("empty_activity_name", "Activity name cannot be empty.");
+            }
+
             Id = id;
             Category = category.Name;
             UserId = userId;
             this.Name = name;
             Description = description;
             CreatedAt = createdAt;
-        }        
+        }
     }
 }

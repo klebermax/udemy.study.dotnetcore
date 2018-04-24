@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -13,12 +14,16 @@ namespace Actio.Services.Activities.Services
         private ICategoryRepository _categoryRepository { get; }
         public CustomMongoSeeder(IMongoDatabase database, ICategoryRepository categoryRepository) : base(database)
         {
+                Console.WriteLine("CustomMongoSeeder ");   
+
             _categoryRepository = categoryRepository;
 
         }
 
         protected override async Task CustomSeedAsync()
         {
+            Console.WriteLine("Trying to seedeee ");
+
             var categories = new List<string>
             {
                 "work",
