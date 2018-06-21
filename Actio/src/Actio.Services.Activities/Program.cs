@@ -16,13 +16,13 @@ namespace Actio.Services.Activities
     {
         public static void Main(string[] args)
         {
-        Console.WriteLine("Starting");
+            Console.WriteLine("Starting");
 
             ServiceHost.Create<Startup>(args)
-    .UseRabbitMq()
-    .SubscribeToCommand<CreateActivity>()
-    .Build()
-    .Run();
+                       .UseRabbitMq()
+                       .SubscribeToCommand<CreateActivity>()
+                       .Build()
+                       .Run();
         }
 
 

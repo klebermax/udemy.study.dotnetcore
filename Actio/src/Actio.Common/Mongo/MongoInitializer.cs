@@ -20,6 +20,7 @@ namespace Actio.Common.Mongo
             _seed = options.Value.Seed;
             _seeder = seeder;
         }
+        
         public async Task InitializeAsync()
         {
             if (_initialized)

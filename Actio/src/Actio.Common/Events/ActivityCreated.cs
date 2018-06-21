@@ -10,6 +10,7 @@ namespace Actio.Common.Events
         public string Name { get; }
         public string Description { get; }
         public DateTime CreatedAt { get; }
+        
         protected ActivityCreated()
         {
 

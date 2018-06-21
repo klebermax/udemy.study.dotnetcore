@@ -27,6 +27,7 @@ namespace Actio.Common.RabbitMq
             var section = configuration.GetSection("rabbitmq");
 
             section.Bind(options);
+            
             var client = RawRabbitFactory.CreateSingleton(new RawRabbitOptions
             {
                 ClientConfiguration = options
